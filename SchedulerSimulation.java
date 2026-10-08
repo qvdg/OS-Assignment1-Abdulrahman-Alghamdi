@@ -217,7 +217,7 @@ static int contextSwitchCount = 0;
             
             // Create a new process object with a unique name, burst time, and the defined time quantum
             Process process = new Process("P" + i, burstTime, timeQuantum);
-            System.out.println("Process" + process.getName() + "Entered ready queue with priority : " + process.getPrioritry());
+            System.out.println("Process" + process.getName() + "Entered ready queue with priority : " + process.getPriority());
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
         }
