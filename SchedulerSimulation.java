@@ -46,6 +46,7 @@ class Process implements Runnable {
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        SchedulerSimulation.contextSwitchCount++;  
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
@@ -149,7 +150,8 @@ class Process implements Runnable {
 }
 
 public class SchedulerSimulation {
-    public static void main(String[] args) {
+static int contextSwitchCount = 0;  
+        public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
         int studentID = 446350321;  // ← CHANGE THIS TO YOUR ACTUAL STUDENT ID
@@ -281,6 +283,7 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+                          System.out.println("Total context switches: " + contextSwitchCount);
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
