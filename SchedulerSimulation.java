@@ -30,6 +30,8 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority;
+    private long arrivalTime = System.currentTimeMillis();
+    private long finishTime;
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
@@ -42,7 +44,17 @@ class Process implements Runnable {
         public int getPriority(){
             return priority;
         }
-    
+    public void setFinishTime() {
+        this.finishTime = System.currentTimeMillis();
+    }
+
+    public long getTurnaroundTime() {
+        return finishTime - arrivalTime;
+    }
+
+    public long getWaitingTime() {
+        return getTurnaroundTime() - burstTime;
+    }
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
@@ -284,6 +296,14 @@ static int contextSwitchCount = 0;
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
                           System.out.println("Total context switches: " + contextSwitchCount);
+                          System.out.println("\nProcess Summary (Waiting & Turnaround Times):");
+System.out.println("---------------------------------------------------------------");
+System.out.println("Process\t| Burst (ms)\t| Waiting (ms)\t| Turnaround (ms)");
+System.out.println("---------------------------------------------------------------");
+for (Process p : processMap.values()) {
+    p.setFinishTime();
+    System.out.println(p.getName() + "\t| " + p.getBurstTime() + "\t\t| " + p.getWaitingTime() + "\t\t| " + p.getTurnaroundTime());
+}
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
