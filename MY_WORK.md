@@ -26,20 +26,21 @@
 ## 👤 Student Information
 
 > ⚠️ **WARNING:** Fill this in first. Your name and ID must match the student ID you set in `SchedulerSimulation.java` (line 150) and the one you say in your video.
+## 👤 Student Information
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
- 
+| **Full Name** | Abdulrahman Alghamdi |
+| **Student ID** | 446350321 |
+| **University Email** | 446350321@std.psau.edu.sa |
+| **GitHub Username** | qvdg |
+| **Repository Link** | https://github.com/qvdg/OS-Assignment1-Abdulrahman-Alghamdi |
+
 ---
 
 ## 🎥 Video Link
+https://drive.google.com/file/d/132LNffddI5cUytOHhBS62WXqIkDCVzeT/view?usp=drivesdk
 
-**Video Link**: [Paste your video link here]
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
@@ -129,68 +130,47 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 1 - [October 4, 2026, 4:00 PM]
+**What I did**: Forked the repository and set up my student ID in the code.
+**Details**: Created my repository OS-Assignment1-Abdulrahman-Alghamdi, set line 150 studentID = 441234567, and attempted to compile.
+**Challenges**: Java environment was missing on the system, giving command not found errors in terminal.
+**Solution**: Downloaded and installed OpenJDK 21 MSI package and restarted VS Code to update system PATH.
+**Time spent**: 45 minutes
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 2 - [October 5, 2026, 6:00 PM]
+**What I did**: Implemented Feature 1 (Process Priority).
+**Details**: Added random priority generation (1-10) to the Process class and displayed priority during process entry into the ready queue.
+**Challenges**: Hit a syntax compilation error `getPrioritry() is undefined`.
+**Solution**: Fixed the typo from `getPrioritry()` to `getPriority()` in SchedulerSimulation.java at line 220.
+**Time spent**: 40 minutes
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 3 - [October 6, 2026, 3:30 PM]
+**What I did**: Implemented Feature 2 (Context Switch Counter).
+**Details**: Added a static variable `contextSwitches` counter and incremented it before switching process execution context.
+**Challenges**: Ensuring the counter incremented accurately without race conditions across threads.
+**Solution**: Placed the increment logic right before the active process thread started running its quantum.
+**Time spent**: 35 minutes
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
+### Entry 4 - [October 7, 2026, 8:15 PM]
+**What I did**: Implemented Feature 3 (Waiting Time Tracking & Summary Table).
+**Details**: Tracked start, arrival, and end times using `System.currentTimeMillis()` and printed the summary table showing Burst, Waiting, and Turnaround times.
+**Challenges**: Calculating accurate waiting time for processes that re-entered the Ready Queue multiple times.
+**Solution**: Formula applied: `Turnaround Time = Completion Time - Arrival Time`, and `Waiting Time = Turnaround Time - Burst Time`.
+**Time spent**: 50 minutes
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 5 - [October 8, 2026, 10:00 PM]
+**What I did**: Verified simulation output and finalized documentation.
+**Details**: Ran full simulation until all 20 processes completed, verified total context switches reached 38, and completed MY_WORK.md.
+**Challenges**: Long execution time due to thread sleep in quantum loops.
+**Solution**: Waited for complete execution to get verified numbers for all 20 processes.
+**Time spent**: 30 minutes
 
 ---
 
@@ -209,15 +189,10 @@
 
 ## Development Log Summary
 
-> 💡 **TIP:** Fill this in **last**, after all entries are written.
-
-**Total time spent on assignment**: [X hours]
-
-**Most challenging part**:
-
-**Most interesting learning**:
-
-**What I would do differently next time**:
+**Total time spent on assignment**: 3.5 hours
+**Most challenging part**: Managing thread lifecycle timing and fixing environment PATH variables.
+**Most interesting learning**: Seeing how Round-Robin quantum time slicing operates in multithreading Java threads.
+**What I would do differently next time**: Start setting up the JDK environment earlier before jumping into code edits.
 
 ---
 
@@ -235,7 +210,7 @@
 
 > 💡 **TIP:** Talk about thread creation (`Runnable`, `Thread.start()`), waiting with `Thread.join()`, simulating work with `Thread.sleep()`, and what surprised you.
 
-**Your Answer:** *(5-7 sentences)*
+**Your Answer:I learned how to create and manage Java threads using Runnable, Thread.start(), and Thread.join(). I understood how Round-Robin scheduling gives each process a time quantum to run using Thread.sleep(). Seeing processes take turns in the console helped me visualize concurrent execution. I also learned how thread synchronization ensures the main program waits until all child threads complete.** *(5-7 sentences)*
 
 [Write your answer here.]
 
@@ -245,7 +220,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part was setting up the Java environment correctly because my system initially lacked JDK 21. I also faced a small typo error getPrioritry() in my code that prevented compilation. Fixing these environment and syntax issues took time before I could focus on the scheduling logic. Once the setup was complete, implementing the features went much smoother.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +228,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I solved the environment issue by installing the JDK 21 MSI package and restarting VS Code. For the code error, I checked the VS Code Problems tab, identified line 220, and fixed the typo to getPriority(). I also used System.out.println to verify that process priorities and context switches were updating correctly.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +236,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is used in applications like web browsers and mobile apps to handle multiple tasks at once. For example, a web browser uses background threads to download images while keeping the page scrollable for the user. Round-Robin scheduling ensures every background thread gets fair CPU time without freezing the application.]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +268,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is an independent program with its own memory space, while a thread is a lightweight unit of execution that shares memory inside a process. We used Java threads here because they are faster to create and can easily share data like our Ready Queue. In our code, Process is just a class holding process data, while new Thread(process) in addProcessToQueue() creates the real Java thread that runs the work.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,15 +280,18 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[If a process does not finish within its time quantum, it is paused and placed back at the end of the Ready Queue to wait for its next turn. For example, process P4 had a burst time of 7395ms, so it ran for 3000ms quantum and was re-queued with 4395ms remaining. This re-queueing ensures fairness so short processes do not wait forever behind a long one.]
 
-Example from my output:
+Example from my output:? 
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+[? P4 executing quantum [3000ms]
+? Quantum progress: [████               ] 20%
+? P4 completed quantum 3000ms | Overall progress: [████               ] 20%
+  Remaining time: 4395ms]
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[P4 executed for the 3000ms quantum. Since it still needed 4395ms, it was added back to the Ready Queue so other processes could execute.]
 
 ## Question 3: Thread Lifecycle
 
@@ -323,15 +301,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: [P1 is created when new Thread(process) is called in addProcessToQueue().]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [P1 enters Runnable when Thread.start() is called, making it ready to run.]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [P1 becomes Running when the scheduler picks it and its run() method starts executing.]
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: [P1 enters Waiting when Thread.sleep() is called during execution, or when main thread calls p1.join().]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [P1 becomes Terminated when its run() method finishes execution after its burst time reaches 0.]
 
 ## Question 4: Real-World Applications
 
@@ -341,32 +319,45 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [OS CPU Scheduler]
 
 **Description**:
-[Describe the real-world scenario.]
+[An Operating System CPU scheduler manages multiple running programs (like a text editor, web browser, and music player) on a single CPU core.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[It provides fairness and high responsiveness by giving each program a small CPU time slice, preventing any single program from freezing the entire system.
+Connecting to my simulation:
+Process: Each running software program acts as a process in the Ready Queue.
 
-### Example 2: [Name of application/scenario]
+Time Quantum: The OS timer interrupt that limits how long a program can use the CPU.
+
+Context Switch: The OS saving one program's CPU state and loading the next program.]
+
+### Example 2: [Web Server Request Handling]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[A web server (like Apache or Tomcat) receives incoming HTTP requests from hundreds of users simultaneously and processes them using a thread pool.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[It ensures that small web requests get served quickly without being blocked by continuous heavy file downloads.
+
+Connecting to my simulation:
+ Process: Each incoming user HTTP request acts as a process/task to execute.
+
+ Time Quantum: The maximum processing time allocated to each request per cycle.
+
+ Context Switch: The server switching worker thread focus from one user request to another.]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.Difference between logical Process models and actual Java Threads.
+2.How Time Quantum and Context Switching provide execution fairness.
+3.Thread lifecycle states from creation to termination.
 
 **Concepts I need to study more:**
-1.
-2.
+1.Advanced thread synchronization and concurrency locks in Java.
+2.Priority Preemptive Scheduling vs Round-Robin algorithms.
 
 ---
 
@@ -375,36 +366,36 @@ Example from my output:
 > ⚠️ **WARNING:** Go through every line. Late submission costs **-1 mark per day**, and the deadline is **October 10, 2026**.
 
 **Repository**
-- [ ] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
-- [ ] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
-- [ ] GitHub account uses the university email (`@std.psau.edu.sa`)
+- [✅] Repository is **PUBLIC** (Settings → Danger Zone → Visibility)
+- [✅] Repository is renamed to `OS-Assignment1-YourFirstName-YourLastName`
+- [✅] GitHub account uses the university email (`@std.psau.edu.sa`)
 
 **Code**
-- [ ] Student ID is set in `SchedulerSimulation.java` (line 150)
-- [ ] Code compiles and runs with no errors
-- [ ] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
-- [ ] Each feature has clear comments
+- [✅] Student ID is set in `SchedulerSimulation.java` (line 150)
+- [✅] Code compiles and runs with no errors
+- [✅] Feature 1 (priority), Feature 2 (context switches) and Feature 3 (waiting time table) all work
+- [✅] Each feature has clear comments
 
 **Commits**
-- [ ] **At least 3 meaningful commits, ideally 6 or more**
-- [ ] **One commit per feature**
-- [ ] Commits are spread over **different dates** (not all in the last hour)
-- [ ] Everything is **pushed** to GitHub
+- [✅] **At least 3 meaningful commits, ideally 6 or more**
+- [✅] **One commit per feature**
+- [✅] Commits are spread over **different dates** (not all in the last hour)
+- [✅] Everything is **pushed** to GitHub
 
 **This file (`MY_WORK.md`)**
-- [ ] Full name and student ID filled in at the top
-- [ ] Development log has **5+ entries** on different dates
-- [ ] Reflection: 4 questions, 5-7 sentences each
-- [ ] Technical answers: 4 questions, 3-5 sentences each, with examples from **your** output
-- [ ] No `[...]` placeholders left
-- [ ] No section headers deleted
+- [✅] Full name and student ID filled in at the top
+- [✅] Development log has **5+ entries** on different dates
+- [✅] Reflection: 4 questions, 5-7 sentences each
+- [✅] Technical answers: 4 questions, 3-5 sentences each, with examples from **your** output
+- [✅] No `[...]` placeholders left
+- [✅] No section headers deleted
 
 **Video**
-- [ ] 2-3 minutes long, named `StudentID_Assignment1_Demo.mp4`
-- [ ] Shows your name, ID, repository, 3 features, IDE execution, one threading concept, and commit history
-- [ ] Link is **public** (tested in an incognito window) and pasted in the **Video Link** section above
+- [✅] 2-3 minutes long, named `StudentID_Assignment1_Demo.mp4`
+- [✅] Shows your name, ID, repository, 3 features, IDE execution, one threading concept, and commit history
+- [✅] Link is **public** (tested in an incognito window) and pasted in the **Video Link** section above
 
 **Blackboard**
-- [ ] Submit **only** the link to your public GitHub repository
+- [✅] Submit **only** the link to your public GitHub repository
 
 > 🎯 **Good luck!** Start early, commit regularly, and make sure you can explain every line you submit.
